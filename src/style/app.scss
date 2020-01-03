@@ -1,0 +1,290 @@
+@import "variable";
+
+/* CSS Document */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  word-break: break-all;
+  word-wrap: break-word;
+  h1,h2,h3,h4,h5,h6{
+    margin: 0;
+  }
+  * {
+    box-sizing: border-box;
+  }
+
+  &:before,
+  &:after {
+    outline: none;
+  }
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  border: none;
+  outline: none;
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+  }
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+textarea {
+  resize: none;
+}
+
+body,
+html {
+  height: 100%;
+  min-height: 100%;
+  min-width: $g_pageMinW;
+}
+
+html {
+  font-size: $g_textSize;
+}
+
+body {
+  font-family: "Microsoft Yahei", sans-serif, "Lucida Grande", Verdana, STXihei;
+  font-size: 14px; //14px
+  background-color: $g_bodyBgColor;
+  color: $g_textBlack;
+}
+
+pre {
+  white-space: pre-wrap;
+  line-height: 30px;
+  font-family: "alibaba Regular", "Microsoft Yahei", sans-serif;
+}
+
+/***********************************布局************************************/
+
+.h-clearfix {
+  zoom: 1;
+  clear: both;
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+.h-bg-grey {
+  background-color: #e9e9e9;
+}
+
+.h-position-relative {
+  position: relative;
+}
+
+.h-position-absolute {
+  position: absolute;
+}
+
+
+.h-hide {
+  display: none;
+}
+
+.h-inline-block {
+  display: inline-block;
+}
+
+.h-block {
+  display: block;
+}
+
+.h-visihide {
+  visibility: hidden;
+}
+
+.h-visiShow {
+  visibility: inherit;
+}
+
+
+.h-margin-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/**********************边距********************/
+$trbl: (t:top, r:right, b:bottom, l:left);
+@each $name, $attr in $trbl{
+  @for $i from 1 through 50 {
+    .h-m#{key}#{i} {
+      margin-#{$attr}: $i * 1px !important;
+    }
+    .h-p#{key}#{i} {
+      padding-#{$attr}: $i * 1px !important;
+    }
+  }
+}
+
+@for $i from 12 through 40 {
+  .h-fontsize#{$i} {
+    font-size: $i * 1px !important;
+  }
+}
+
+
+
+.h-font-bold {
+  font-weight: bold;
+}
+
+.h-font-initial {
+  font-weight: initial;
+}
+
+$textColor: (
+  aaa: #aaa,
+  bbb: #bbb,
+  ccc: #ccc,
+  white: #fff,
+  _666: #666,
+  _000: #000,
+  _333: #333,
+  _999: #999,
+  _f1f1f1: #f1f1f1,
+  red: $g_redColor,
+);
+
+@each $name,
+$attr in $textColor {
+.h-color-#{$name} {
+  color: #{$attr};
+}
+.h-hoverColor-#{$name}:hover {
+  color: #{$attr};
+}
+}
+
+/*********** 布局************/
+.h-overHide {
+  overflow: hidden;
+}
+
+.h-text-left {
+  text-align: left;
+}
+
+.h-text-center {
+  text-align: center;
+}
+
+.h-text-right {
+  text-align: right;
+}
+
+
+.wrap {
+  width: $g_pageMinW;
+  margin: 0 auto;
+}
+
+
+.h-clearfix {
+  zoom: 1;
+  clear: both;
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+
+/******banner******/
+#banner {
+  width: 100%;
+  height: 550px;
+  background-size: 100% 100% !important;
+}
+
+#banner-small {
+  width: 100%;
+  height: 200px;
+}
+
+
+/******** header *********/
+#header{
+  width: 100%;
+  height: $g_headerH;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  +*{
+    margin-top:60px;
+  }
+  .ant-menu-horizontal{
+    border-bottom: none;
+    line-height:$g_headerH;
+    .ant-menu-item{
+      transition: .5s;
+      height: $g_headerH;
+      &.ant-menu-item-selected,&.ant-menu-item-active{
+        border-bottom: none;
+        color: #fff;
+        background-color: $g_themeColor;
+        transform: skew(-20deg);
+        transition: .5s;
+        a{
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+#rich-text{
+  background-color: #fff;
+}
